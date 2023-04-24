@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+
+/* Variables */
+
+:root {
+  --main-bg-color: #0d0d0d;
+  --section-color: rgba(30, 30, 30, .25);
+  --white: #f0f6fc;
+  --transparent-white: rgba(240, 246, 252, .16);
+  --blue: #67add7;
+  --transparent-blue: rgba(103, 173, 215, .25);
+  --perspective: 800px;
+  --perspective-origin: 50% 200px;
+  --dimensions: 400px;
+  --mobile-perspective: 1200px;
+  --mobile-perspective-origin: 50% 200px;
+  --mobile-dimensions: 400px;
+  --outline: .25px solid var(--transparent-white);
+  --transform-rotate: rotateX(136deg) rotateY(1122deg);
+  --image-rotate: rotate(180deg);
+  --transform-1: rotateX(90deg) translateZ(200px);
+  --transform-2: translateZ(200px);
+  --transform-3: rotateY(90deg) translateZ(200px);
+  --transform-4: rotateY(180deg) translateZ(200px);
+  --transform-5: rotateY(-90deg) translateZ(200px);
+  --transform-6: rotateX(-90deg) rotate(180deg) translateZ(200px);
+  --viewport-scale: scale(0.6, 0.6);
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+/* X-Small devices (portrait phones, less than 576px)*/
+body {
+  height: 100vw;
+  width: 100vw;
+  margin:0px;
+  overflow:hidden;
+  font-family: 'Anonymous Pro', monospace;
+  color: var(--white);
+  background-color: #0d0d0d;
+}
+  header {
+  margin: 0 auto;
+  width: 100%;
+}
+/* Style the navigation menu */
+nav {
+  width: 95%;
+  position: relative;
+  padding:5px 10px;
+}
+nav #my-links {
+  position:absolute;
+  display: none;
+  flex-flow: column;
+  top:1.5em;
+  right:1em;
+  text-align:right;
+}
+nav .logo {
+  width:35%;
+}
+
+/* Style navigation menu links */
+nav a {
+  color: var(--white);
+  padding: 0;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+nav a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: .25em;
+}
+
+/* Add a grey background color on mouse-over */
+nav a:hover {
+  color: var(--blue);
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  color: var(--white);
+}
+main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    width: 80%;
+    height: 80vh;
+    background: var(--section-color);
+    border: 10px solid var(--main-bg-color);
+    padding: 1rem 2rem;
+    outline: 1rem solid var(--section-color);
+    margin-bottom: 6rem;
+    margin-top: 2em;
+    display: flex;
+    flex-flow:column;
+}
+.cube-links {order:3;}
+.cube-links a{
+  text-decoration: none;
+  color: var(--white);
+  font-size: .5em;
+}
+.section-2 {display: none;} 
+.section-3 {display: none;}
+.section-4 {display: none;}
+.section-5 {display: none;}
+
+
+/* cube styling */
+#wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.viewport {
+  -webkit-perspective: var(--mobile-perspective);
+  -moz-perspective: var(--mobile-perspective);
+  -ms-perspective: var(--mobile-perspective);
+  -o-perspective: var(--mobile-perspective);
+  perspective: var(--mobile-perspective);
+  -webkit-perspective-origin: var(--mobile-perspective-origin);
+  -moz-perspective-origin: var(--mobile-perspective-origin);
+  -ms-perspective-origin: var(--mobile-perspective-origin);
+  -o-perspective-origin: var(--mobile-perspective-origin);
+  perspective-origin: var(--mobile-perspective-origin);
+  /* -webkit-transform: scale(0.8, 0.8);
+  -moz-transform: scale(0.8, 0.8);
+  -ms-transform: scale(0.8, 0.8);
+  -o-transform: scale(0.8, 0.8);
+  transform: scale(0.8, 0.8); */
+  /* -webkit-box-reflect: below 170px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0%, transparent), to(rgba(250, 250, 250, 0.1)));*/
+}
+
+.cube {
+  position: relative;
+  margin: 0 auto;
+  height: var(--mobile-dimensions);
+  width: var(--mobile-dimensions);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: var(--transform-rotate);
+  -moz-transform: var(--transform-rotate);
+  -ms-transform: var(--transform-rotate);
+  -o-transform: var(--transform-rotate);
+  transform: var(--transform-rotate); 
+}
+
+.cube > div.side {
+  overflow: hidden;
+  position: absolute;
+  opacity: 0.9;
+  height: var(--mobile-dimensions);
+  width: var(--mobile-dimensions);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(240, 246, 252, .16); */
+  background-color: var(--transparent-blue);
+  -webkit-touch-callout: none;
+  -moz-touch-callout: none;
+  -ms-touch-callout: none;
+  -o-touch-callout: none;
+  /* touch-callout: none; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  transition: all 600ms; 
+}
+
+
+.cube > div > div.cube-image {
+  width: var(--mobile-dimensions);
+  height: var(--mobile-dimensions);
+  -webkit-transform: var(--image-rotate);
+  -moz-transform: var(--image-rotate);
+  -ms-transform: var(--image-rotate);
+  -o-transform: var(--image-rotate);
+  transform: var(--image-rotate);
+  /* line-height: 200px; */
+  font-size: 40px;
+  padding-top:180px;
+  text-align: center;
+  color: var(--transparent-white);
+  -webkit-transition: color 600ms;
+  -moz-transition: color 600ms;
+  -ms-transition: color 600ms;
+  -o-transition: color 600ms;
+  transition: color 600ms; 
+}
+.cube > div > div.cube-image.active {color: var(--blue);}
+
+.cube > div:hover {cursor: pointer; }
+
+.cube > div:active {cursor: pointer; }
+
+.cube > div:first-child {
+  -webkit-transform: var(--transform-1);
+  -moz-transform: var(--transform-1);
+  -ms-transform: var(--transform-1);
+  -o-transform: var(--transform-1);
+  transform: var(--transform-1);
+  outline: var(--outline); 
+}
+
+.cube > div:nth-child(2) {
+  -webkit-transform: var(--transform-2);
+  -moz-transform: var(--transform-2);
+  -ms-transform: var(--transform-2);
+  -o-transform: var(--transform-2);
+  transform: var(--transform-2);
+  outline: var(--outline);
+}
+
+.cube > div:nth-child(3) {
+  -webkit-transform: var(--transform-3);
+  -moz-transform: var(--transform-3);
+  -ms-transform: var(--transform-3);
+  -o-transform: var(--transform-3);
+  transform: var(--transform-3);
+  outline: var(--outline);
+}
+
+.cube > div:nth-child(4) {
+  -webkit-transform: var(--transform-4);
+  -moz-transform: var(--transform-4);
+  -ms-transform: var(--transform-4);
+  -o-transform: var(--transform-4);
+  transform: var(--transform-4);
+  outline: var(--outline);
+}
+
+.cube > div:nth-child(5) {
+  -webkit-transform: var(--transform-5);
+  -moz-transform: var(--transform-5);
+  -ms-transform: var(--transform-5);
+  -o-transform: var(--transform-5);
+  transform: var(--transform-5);
+  outline: var(--outline);
+}
+
+.cube > div:nth-child(6) {
+  -webkit-transform: var(--transform-6);
+  -moz-transform: var(--transform-6);
+  -ms-transform: var(--transform-6);
+  -o-transform: var(--transform-6);
+  transform: var(--transform-6);
+  outline: var(--outline); 
+}
+
+object {
+  opacity: 0.5; }
+
+object:hover {
+  opacity: 1; }
+
+@media (max-width: 640px) {
+  .viewport {
+    -webkit-transform: var(--viewport-scale);
+    -moz-transform: var(--viewport-scale);
+    -ms-transform: var(--viewport-scale);
+    -o-transform: var(--viewport-scale);
+    transform: var(--viewport-scale); 
+  }     
+}
+/* Particle background */
+canvas{ 
+  display: block; 
+  /* vertical-align: bottom; */
+} 
+/* ---- particles.js container ---- */ 
+#particles-js { 
+  position:absolute; 
+  width: 100%; 
+  height: 100%; 
+  opacity: .3;
+}
+ /* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { nav .logo {
+    width:15%;
+  } }
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { nav .logo {
+    width:15%;
+  } }
+
+ /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { nav .logo {
+    width:15%;
+  } }
+
+ /* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { nav .logo {
+    width:15%;
+  } }
+
+ /* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  nav #my-links {
+    display: none;
+    flex-flow: row nowrap;
+    position: absolute;
+    top:1.25em;
+    right:6em;
+  }
+  nav .logo {
+    width:15%;
+  }
+
+  /* Style navigation menu links */
+  nav a {
+    color: var(--white);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  /* Style the hamburger menu */
+  nav a.icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+
+  /* Add a grey background color on mouse-over */
+  nav a:hover {
+    color: var(--blue);
+  }
+
+  /* Style the active link (or home/logo) */
+  .active {
+    color: var(--white);
+  }
+  main {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+  }
+  section {
+      width: 90%;
+      height: 80vh;
+      background: var(--section-color);
+      border: 10px solid var(--main-bg-color);
+      padding: 1rem 2rem;
+      outline: 1rem solid var(--section-color);
+      margin-bottom: 6rem;
+      margin-top: 2em;
+      display: flex;
+  }
+  .section-2, .section-3, .section-4, .section-5 {display: none;}
+
+
+  /* cube styling */
+  #wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+
+  .viewport {
+    -webkit-perspective: var(--perspective);
+    -moz-perspective: var(--perspective);
+    -ms-perspective: var(--perspective);
+    -o-perspective: var(--perspective);
+    perspective: var(--perspective);
+    -webkit-perspective-origin: var(--perspective-origin);
+    -moz-perspective-origin: var(--perspective-origin);
+    -ms-perspective-origin: var(--perspective-origin);
+    -o-perspective-origin: var(--perspective-origin);
+    perspective-origin: var(--perspective-origin);
+    /* -webkit-transform: scale(0.8, 0.8);
+    -moz-transform: scale(0.8, 0.8);
+    -ms-transform: scale(0.8, 0.8);
+    -o-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8); */
+    /* -webkit-box-reflect: below 170px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0%, transparent), to(rgba(250, 250, 250, 0.1)));*/
+  }
+
+  .cube {
+    position: relative;
+    margin: 0 auto;
+    height: var(--dimensions);
+    width: var(--dimensions);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: var(--transform-rotate);
+    -moz-transform: var(--transform-rotate);
+    -ms-transform: var(--transform-rotate);
+    -o-transform: var(--transform-rotate);
+    transform: var(--transform-rotate); 
+  }
+
+  .cube > div.side {
+    overflow: hidden;
+    position: absolute;
+    opacity: 0.9;
+    height: var(--dimensions);
+    width: var(--dimensions);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(240, 246, 252, .16); */
+    background-color: rgba(103, 173, 215, .16);
+    -webkit-touch-callout: none;
+    -moz-touch-callout: none;
+    -ms-touch-callout: none;
+    -o-touch-callout: none;
+    /* touch-callout: none; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    transition: all 600ms; 
+  }
+
+
+  .cube > div > div.cube-image {
+    width: var(--dimensions);
+    height: var(--dimensions);
+    -webkit-transform: var(--image-rotate);
+    -moz-transform: var(--image-rotate);
+    -ms-transform: var(--image-rotate);
+    -o-transform: var(--image-rotate);
+    transform: var(--image-rotate);
+    /* line-height: 200px; */
+    font-size: 40px;
+    padding-top:180px;
+    text-align: center;
+    color: var(--transparent-white);
+    -webkit-transition: color 600ms;
+    -moz-transition: color 600ms;
+    -ms-transition: color 600ms;
+    -o-transition: color 600ms;
+    transition: color 600ms; 
+  }
+  .cube > div > div.cube-image.active {color: var(--blue);}
+
+  .cube > div:hover {cursor: pointer; }
+
+  .cube > div:active {cursor: pointer; }
+
+  .cube > div:first-child {
+    -webkit-transform: var(--transform-1);
+    -moz-transform: var(--transform-1);
+    -ms-transform: var(--transform-1);
+    -o-transform: var(--transform-1);
+    transform: var(--transform-1);
+    outline: var(--outline); 
+  }
+
+  .cube > div:nth-child(2) {
+    -webkit-transform: var(--transform-2);
+    -moz-transform: var(--transform-2);
+    -ms-transform: var(--transform-2);
+    -o-transform: var(--transform-2);
+    transform: var(--transform-2);
+    outline: var(--outline);
+  }
+
+  .cube > div:nth-child(3) {
+    -webkit-transform: var(--transform-3);
+    -moz-transform: var(--transform-3);
+    -ms-transform: var(--transform-3);
+    -o-transform: var(--transform-3);
+    transform: var(--transform-3);
+    outline: var(--outline);
+  }
+
+  .cube > div:nth-child(4) {
+    -webkit-transform: var(--transform-4);
+    -moz-transform: var(--transform-4);
+    -ms-transform: var(--transform-4);
+    -o-transform: var(--transform-4);
+    transform: var(--transform-4);
+    outline: var(--outline);
+  }
+
+  .cube > div:nth-child(5) {
+    -webkit-transform: var(--transform-5);
+    -moz-transform: var(--transform-5);
+    -ms-transform: var(--transform-5);
+    -o-transform: var(--transform-5);
+    transform: var(--transform-5);
+    outline: var(--outline);
+  }
+
+  .cube > div:nth-child(6) {
+    -webkit-transform: var(--transform-6);
+    -moz-transform: var(--transform-6);
+    -ms-transform: var(--transform-6);
+    -o-transform: var(--transform-6);
+    transform: var(--transform-6);
+    outline: var(--outline); 
+  }
+
+  object {
+    opacity: 0.5; }
+
+  object:hover {
+    opacity: 1; }
+
+  @media (max-width: 640px) {
+    .viewport {
+      -webkit-transform: var(--viewport-scale);
+      -moz-transform: var(--viewport-scale);
+      -ms-transform: var(--viewport-scale);
+      -o-transform: var(--viewport-scale);
+      transform: var(--viewport-scale); 
+    }     
+  }
+  /* Particle background */
+  canvas{ 
+  display: block; 
+  /* vertical-align: bottom; */
+} 
+  /* ---- particles.js container ---- */ 
+  #particles-js { 
+    position:absolute; 
+    width: 100%; 
+    height: 100%; 
+    opacity: .8;
+    z-index: -5;
+  }
+}
+
+
+
+

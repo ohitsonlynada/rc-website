@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+
+/* Variables */
+:root {
+  --main-bg-color: #0d0d0d;
+  --section-color: #1e1e1e;
+  --white: #f0f6fc;
+  --blue: #67add7;
+  --perspective: 800px;
+  --perspective-origin: 50% 200px;
+  --dimensions: 400px;
+  --outline: .25px solid var(--white);
+  --transform-rotate: rotateX(136deg) rotateY(1122deg);
+  --image-rotate: rotate(180deg);
+  --transform-1: rotateX(90deg) translateZ(200px);
+  --transform-2: translateZ(200px);
+  --transform-3: rotateY(90deg) translateZ(200px);
+  --transform-4: rotateY(180deg) translateZ(200px);
+  --transform-5: rotateY(-90deg) translateZ(200px);
+  --transform-6: rotateX(-90deg) rotate(180deg) translateZ(200px);
+  --viewport-scale: scale(0.6, 0.6);
+}
+
+/* ---- particles.js container ---- */ 
+#particles-js{ 
+    position:absolute;
+    width: 100%; 
+    height: 100%; 
+    background-color: var(--main-bg-color);
+} 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+body {
+  height: 100vw;
+  width: 100vw;
+  margin:0px;
+  overflow:hidden;
+  font-family: 'Anonymous Pro', monospace;
+  color: var(--white);
+  background: transparent;
+}
+header {
+  margin: 0 auto;
+  width: 100%;
+}
+/****NAVIGATION STYLING****/
+nav {
+  width: 97%;
+  overflow: hidden;
+  position: relative;
+  padding:10px 20px;
+}
+nav #my-links {
+  display: none;
+  flex-flow: row nowrap;
+  position: absolute;
+  top:1.25em;
+  right:6em;
+}
+nav .logo {
+  width:15%;
+}
+
+nav a {
+  color: var(--white);
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+nav a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+nav a:hover {
+  color: var(--blue);
+}
+
+/****MAIN PAGE STYLING****/
+section {
+    width: 90%;
+    height: 80vh;
+    background: var(--section-color);
+    border: 10px solid var(--main-bg-color);
+    padding: 1rem 2rem;
+    outline: 1rem solid var(--section-color);
+    margin-bottom: 6rem;
+    margin-top: 2em;
+    display: flex;
+}
